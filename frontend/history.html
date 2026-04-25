@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friday History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>📜 Friday History</h1>
+<div id="historyBox"></div>
+
+<script>
+async function loadHistory() {
+    try {
+        let res = await fetch("http://127.0.0.1:5000/history");
+        let data = await res.json();
+        let box = document.getElementById("historyBox");
+
+        if (data.history.length === 0) {
+            box.innerHTML = "<p>No history yet!</p>";
+            return;
+        }
+
+        data.history.forEach(item => {
+            box.innerHTML += `
+                <div class="historyItem">
+                    <p><b>🕒 Time:</b> ${item.time}</p>
+                    <p><b>💬 You:</b> ${item.command}</p>
+                    <p><b>🦾 Friday:</b> ${item.response}</p>
+                    <hr>
+                </div>
+            `;
+        });
+    } catch (error) {
+        document.getElementById("historyBox").innerHTML = "<p>Could not load history.</p>";
+    }
+}
+
+loadHistory();
+</script>
+
+</body>
+</html>

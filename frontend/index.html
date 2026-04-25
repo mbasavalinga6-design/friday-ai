@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FRIDAY AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- LOGIN -->
+<div id="loginBox">
+    <div class="login-container">
+        <div class="logo-ring">
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+            <div class="logo-text">F</div>
+        </div>
+        <h1 class="title">FRIDAY <span>AI</span></h1>
+        <p class="subtitle">Your Personal AI Assistant</p>
+        <div class="input-group">
+            <input id="username" placeholder="USERNAME" autocomplete="off">
+        </div>
+        <div class="input-group">
+            <input id="password" type="password" placeholder="PASSWORD" autocomplete="off">
+        </div>
+        <button type="button" class="login-btn" onclick="login()">
+            <span>INITIALIZE</span>
+        </button>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div id="main" style="display:none;">
+    <div class="main-container">
+        <div class="header">
+            <div class="header-left">
+                <div class="status-dot"></div>
+                <span class="header-title">FRIDAY AI</span>
+            </div>
+            <div class="header-right">
+                <button type="button" class="hist-btn" onclick="viewHistory()">📜 HISTORY</button>
+            </div>
+        </div>
+
+        <div id="chat"></div>
+
+        
+
+        <div class="input-area">
+            <input type="text" id="input" placeholder="Enter command..." autocomplete="off">
+            <button type="button" class="send-btn" onclick="send()">SEND</button>
+            <button type="button" id="micBtn" class="mic-btn" onclick="startVoice()">🎤</button>
+        </div>
+
+        <div class="hints">
+            <span onclick="document.getElementById('input').value='hi friday'">👋 Hi Friday</span>
+            <span onclick="document.getElementById('input').value='tell me a joke'">😄 Joke</span>
+            <span onclick="document.getElementById('input').value='what is the time'">⏰ Time</span>
+            <span onclick="document.getElementById('input').value='weather in Bangalore'">🌤️ Weather</span>
+            <span onclick="document.getElementById('input').value='roast me'">🔥 Roast</span>
+            <span onclick="document.getElementById('input').value='give me a quote'">💬 Quote</span>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
