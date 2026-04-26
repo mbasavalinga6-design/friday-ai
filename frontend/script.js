@@ -79,7 +79,7 @@ async function login() {
     let password = document.getElementById("password").value;
 
     try {
-        let res = await fetch("http://127.0.0.1:5000/login", {
+        let res = await fetch("https://friday-backend-wbmu.onrender.com", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ username, password })
@@ -125,7 +125,7 @@ async function send() {
     input.value = "";
 
     try {
-        let res = await fetch("http://127.0.0.1:5000/ask", {
+        let res = await fetch("https://friday-backend-wbmu.onrender.com", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ command })
@@ -172,7 +172,7 @@ function viewHistory() {
 // Check reminders every 5 seconds
 setInterval(async function() {
     try {
-        let res = await fetch("http://127.0.0.1:5000/reminders");
+        let res = await fetch("https://friday-backend-wbmu.onrender.com");
         let data = await res.json();
 
         if (data.reminder) {
