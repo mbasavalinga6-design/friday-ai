@@ -79,7 +79,7 @@ async function login() {
     let password = document.getElementById("password").value;
 
     try {
-        let res = await fetch("https://friday-backend-wbmu.onrender.com", {
+        let res = await fetch("https://friday-backend-wbmu.onrender.com/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ username, password })
@@ -125,7 +125,7 @@ async function send() {
     input.value = "";
 
     try {
-        let res = await fetch("https://friday-backend-wbmu.onrender.com", {
+        let res = await fetch("https://friday-backend-wbmu.onrender.com/ask", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ command })
@@ -141,7 +141,6 @@ async function send() {
             let song = parts[0].trim();
             let videoId = parts[1].trim();
 
-            // FIXED: Open exact YouTube video in new tab
             if (videoId && videoId !== "none") {
                 window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
             } else {
@@ -172,7 +171,7 @@ function viewHistory() {
 // Check reminders every 5 seconds
 setInterval(async function() {
     try {
-        let res = await fetch("https://friday-backend-wbmu.onrender.com");
+        let res = await fetch("https://friday-backend-wbmu.onrender.com/reminders");
         let data = await res.json();
 
         if (data.reminder) {
