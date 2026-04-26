@@ -1,0 +1,8 @@
+flask
+flask-cors
+groq
+requests
+wikipedia
+pyjokes
+python-dotenv
+gunicorn
